@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-//Route::get('/emaberto', 'DuplicController@index');
 
 Route::apiResource('guests', 'api\GuestController' );
 Route::get('searchGuest', 'api\GuestController@search');
