@@ -70,9 +70,148 @@ Startar o servidor
 ## 🎈 Uso <a name="usage"></a>
 
 
+## Métodos
+Requisições para a API devem seguir os padrões:
+| Método | Descrição |
+|---|---|
+| `GET` | Retorna informações de um ou mais registros. |
+| `POST` | Utilizado para criar um novo registro. |
+| `PUT` | Atualiza dados de um registro ou altera sua situação. |
+| `DELETE` | Remove um registro do sistema. |
+
+# Group Recursos
 
 
+# Hóspedes [api/guests]
 
+### Novo(create) [POST]
++ Attibutes (Multipart)
+  
+   + name : Nome do hóspede (string) - limite 255 caracteres
+   + doc  : Doumento de identificação (string, unique) - limite de 14 caracteres
+   + phone: Número de Telefone (string, required) - limite de 12 caracteres
+   + additionalVehicle: Reserva de Veículo (boolean) - 0 para false e 1 para true
+   
+   
+ + Response 201 (application/json)
+ 
+  + Body
+    {
+      "message": "Hóspede inserido com sucesso!"
+    }
+   
+### Listar Todos(Read) [GET /api/guests]
+
+
++ Response 200 (application/json)
+  Todos os Hóspedes
+  
+  + Body
+    
+      {
+        "id": 1,
+        "name": "Alex Sousa",
+        "doc": "123554879",
+        "phone": "98988883663",
+        "created_at": null,
+        "updated_at": null
+      },
+      {
+        "id": 4,
+        "name": "Carlos Eduardo",
+        "doc": "236449745",
+        "phone": "98966554478",
+        "created_at": "2020-10-28 13:00:59",
+        "updated_at": "2020-10-28 13:00:59"
+      }
+      
+### Listar (Read) [GET /api/guests{id}]
+
++ Parameters
+    + id (required, number, `1`) ... Código do Hóspede
+
+
+    
++ Response 200 (application/json)
+  Hóspede por ID
+  
+  + Body
+    
+      {
+        "id": 1,
+        "name": "Alex Sousa",
+        "doc": "123554879",
+        "phone": "98988883663",
+        "created_at": null,
+        "updated_at": null
+      }
+
+      
+### Busca (Read) [GET /api/searchGuest]
+
++ Request (application/json)
+
+  
+  + Parameters
+      + name (string , `Alex Sousa`) ... Nome do Hóspede
+      + doc  (string , `6547979656`) ... Documento do Hóspede
+      + phone(string , `9896-3665`)  ... Telefone do Hóspede
+
++ Response 200 (application/json)
+
+    + Body
+
+    {
+      "id": 9,
+      "name": "Alex Sousa",
+      "doc": "6547979656",
+      "phone": "9896-65555",
+      "created_at": "2020-10-28 13:20:07",
+      "updated_at": "2020-10-28 13:20:07"
+    }
+    
+### Atualizar (update) [PUT /api/guests/{id}]    
+
+  + Request (application/json)
+  
+  + Parameters
+      + id (required, number, `1`) ... Código do Hóspede
+      
+  + Response 200 (application/json)      
+  
+  + Body
+    {
+      "message": "Dados atualizados com sucesso!"
+    }
+
+  + Response 404 (application/json)
+ Quando o registro não foi encontrado.
+
+    + Body
+      {
+        "message" => "Hóspede não encontrado"
+      }
+      
+      
+### Remover (Delete) [DELETE  /api/guests/{id}]
+
+  + Request (application/json)
+  
+  + Response 200 (application/json)
+  
+  + Body
+    {
+      "message" => "Hóspede deletado com sucesso!"
+    }
+
+ + Response 404 (application/json)
+ Quando o registro não foi encontrado.
+
+    + Body
+      {
+        "message" => "Hóspede não encontrado"
+      }
+    
 
 ## ⛏️ Ferramentas usadas <a name = "built_using"></a>
 
