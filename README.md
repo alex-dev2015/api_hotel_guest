@@ -96,9 +96,11 @@ Requisições para a API devem seguir os padrões:
  + Response 201 (application/json)
  
   + Body
+  ```json
     {
       "message": "Hóspede inserido com sucesso!"
     }
+  ```  
    
 ### Listar Todos(Read) [GET /api/guests]
 
@@ -107,7 +109,7 @@ Requisições para a API devem seguir os padrões:
   Todos os Hóspedes
   
   + Body
-    
+    ```json
       {
         "id": 1,
         "name": "Alex Sousa",
@@ -124,6 +126,7 @@ Requisições para a API devem seguir os padrões:
         "created_at": "2020-10-28 13:00:59",
         "updated_at": "2020-10-28 13:00:59"
       }
+    ``` 
       
 ### Listar (Read) [GET /api/guests{id}]
 
@@ -136,7 +139,7 @@ Requisições para a API devem seguir os padrões:
   Hóspede por ID
   
   + Body
-    
+    ```json
       {
         "id": 1,
         "name": "Alex Sousa",
@@ -145,6 +148,7 @@ Requisições para a API devem seguir os padrões:
         "created_at": null,
         "updated_at": null
       }
+     ```
 
       
 ### Busca (Read) [GET /api/searchGuest]
@@ -160,7 +164,7 @@ Requisições para a API devem seguir os padrões:
 + Response 200 (application/json)
 
     + Body
-
+  ```json
     {
       "id": 9,
       "name": "Alex Sousa",
@@ -169,6 +173,7 @@ Requisições para a API devem seguir os padrões:
       "created_at": "2020-10-28 13:20:07",
       "updated_at": "2020-10-28 13:20:07"
     }
+  ```  
     
 ### Atualizar (update) [PUT /api/guests/{id}]    
 
@@ -200,17 +205,21 @@ Requisições para a API devem seguir os padrões:
   + Response 200 (application/json)
   
   + Body
+  ```json
     {
       "message" => "Hóspede deletado com sucesso!"
     }
+  ```  
 
  + Response 404 (application/json)
  Quando o registro não foi encontrado.
 
     + Body
+    ```json
       {
         "message" => "Hóspede não encontrado"
       }
+    ```  
     
 
 ## ⛏️ Ferramentas usadas <a name = "built_using"></a>
